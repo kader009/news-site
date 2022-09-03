@@ -14,15 +14,15 @@ GetCategory();
 
 
 // display here
-const DisplayCatagory = (catagory) => {
+const DisplayCatagory = (category) => {
   const Cataitem = document.getElementById('cataitem');
   // console.log(catagory);
 
-  catagory.forEach(element => {
+  category.forEach(category => {
     const li = document.createElement('li');
     li.classList.add('nav-item', 'd-block');
     li.innerHTML = `
-    <a onclick="GetDetail()" href="#${element}" class="nav-link">${element.category_name}</a>
+    <a onclick="GetDetail('${category.category_id}')" href="#" class="nav-link">${category.category_name}</a>
 
     `;
     Cataitem.appendChild(li);
@@ -33,13 +33,16 @@ const DisplayCatagory = (catagory) => {
 
 // get detail here
 
-const GetDetail = id =>{
-  fetch(`https://openapi.programming-hero.com/api/news/category/01`)
+const GetDetail = category => {
+  
+  fetch(`https://openapi.programming-hero.com/api/news/category/${category}`)
   .then(res => res.json())
   .then(data => console.log(data.data))
+  .catch(error => console.log(error))
+  console.log(category);
 }
 
-GetDetail();
+// GetDetail();
 
 
 
