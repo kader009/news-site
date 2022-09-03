@@ -77,6 +77,10 @@ const displayDetail = show => {
     <div class="card-body">
     <h5 class="card-title">${show.title}</h5>
     <p class="card-text">${show.details.slice(0, 200)}</p>
+    <img src="${show.author.img}" class="img-fluid rounded-circle" style="width:50px;">
+    <h6 class="card-text d-inline-block ms-3">${show.author.name}</h6>
+    <h6 class="card-text d-inline-block ms-5">Total view: ${show.total_view}</h6>
+    <button class="btn btn-primary ms-5">More</button>
     </div>
 
     </div>
